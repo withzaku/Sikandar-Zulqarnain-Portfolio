@@ -81,6 +81,11 @@ export const metadata: Metadata = {
     "genomatics.net developer",
   ],
 
+  // Google Search Console verification
+  verification: {
+    google: "BCaGI_n10mMF2g0e4aN9UZxQ0oTOM252W2KF9RDl2FM",
+  },
+
   // Canonical URL
   alternates: {
     canonical: SITE_URL,
