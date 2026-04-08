@@ -40,6 +40,10 @@ export const metadata: Metadata = {
     description: "Portfolio of Sikandar Zulqarnain — building intelligent systems for biology and data.",
     images: ["/og-image.png"],
   },
+  icons: {
+    icon: "/profile.png",
+    apple: "/profile.png",
+  },
 };
 
 const jsonLd = {
