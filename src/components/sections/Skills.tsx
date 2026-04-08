@@ -33,8 +33,8 @@ export default function Skills() {
     ];
 
     return (
-        <section id="skills" className="py-24 relative overflow-hidden w-full">
-            <div className="container mx-auto px-6 md:px-12">
+        <section id="skills" className="py-16 md:py-24 relative overflow-hidden w-full">
+            <div className="container mx-auto px-4 sm:px-6 md:px-12">
                 <motion.div
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -42,13 +42,13 @@ export default function Skills() {
                     transition={{ duration: 0.8 }}
                     className="text-center max-w-3xl mx-auto mb-16"
                 >
-                    <DNAScrambleText text="Technical Arsenal" className="text-4xl sm:text-5xl md:text-7xl font-black tracking-tighter mb-6 font-heading uppercase text-foreground" />
+                    <DNAScrambleText text="Technical Arsenal" className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-black tracking-tighter mb-6 font-heading uppercase text-foreground" />
                     <p className="text-lg text-muted-foreground leading-relaxed">
                         A diverse toolkit enabling the rapid development of intelligent biological systems, complex data analysis engines, and cutting-edge web platforms.
                     </p>
                 </motion.div>
 
-                <div className="grid md:grid-cols-2 gap-8">
+                <div className="grid sm:grid-cols-2 gap-5 md:gap-8">
                     {skillCategories.map((category, index) => (
                         <motion.div
                             key={index}
@@ -56,7 +56,7 @@ export default function Skills() {
                             whileInView={{ opacity: 1, scale: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6, delay: index * 0.1 }}
-                            className="bg-card border border-border p-8 relative group hover:border-primary transition-colors duration-300"
+                            className="bg-card border border-border p-5 md:p-8 relative group hover:border-primary transition-colors duration-300"
                         >
                             <h3 className="text-2xl font-black mb-8 tracking-tighter uppercase font-heading text-foreground">{category.title}</h3>
                             <div className="flex flex-wrap gap-3">

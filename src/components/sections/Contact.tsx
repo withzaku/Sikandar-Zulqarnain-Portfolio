@@ -51,8 +51,8 @@ export default function Contact() {
     };
 
     return (
-        <section id="contact" className="py-24 relative w-full overflow-hidden">
-            <div className="container mx-auto px-6 md:px-12 flex flex-col lg:flex-row gap-16">
+        <section id="contact" className="py-16 md:py-24 relative w-full overflow-hidden">
+            <div className="container mx-auto px-4 sm:px-6 md:px-12 flex flex-col lg:flex-row gap-10 md:gap-16">
 
                 {/* Left Side: Contact Info */}
                 <motion.div
@@ -62,7 +62,7 @@ export default function Contact() {
                     transition={{ duration: 0.8 }}
                     className="w-full lg:w-5/12"
                 >
-                    <h2 className="text-[3.5rem] leading-[1] sm:text-5xl md:text-7xl font-black tracking-tighter mb-6 font-heading uppercase text-foreground">
+                    <h2 className="text-[2.2rem] leading-[1.05] sm:text-4xl md:text-5xl lg:text-7xl font-black tracking-tighter mb-4 md:mb-6 font-heading uppercase text-foreground">
                         Let&apos;s Create The <span className="text-primary italic">Future</span>
                     </h2>
                     <p className="text-lg text-muted-foreground mb-12">
@@ -76,7 +76,7 @@ export default function Contact() {
                             </div>
                             <div>
                                 <div className="text-xs font-mono uppercase tracking-widest text-muted-foreground mb-1">Email</div>
-                                <a href="mailto:sikandarzulqarnain.gil@gmail.com" className="text-lg font-bold hover:text-primary transition-colors">sikandarzulqarnain.gil@gmail.com</a>
+                                <a href="mailto:sikandarzulqarnain.gil@gmail.com" className="text-sm sm:text-base md:text-lg font-bold hover:text-primary transition-colors break-all">sikandarzulqarnain.gil@gmail.com</a>
                             </div>
                         </div>
 
@@ -116,7 +116,7 @@ export default function Contact() {
                                 </motion.div>
                             ) : (
                                 <>
-                                    <div className="grid md:grid-cols-2 gap-6">
+                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
                                         <div className="space-y-2">
                                             <label htmlFor="name" className="text-xs font-mono tracking-widest uppercase text-muted-foreground">Name</label>
                                             <Input id="name" name="name" placeholder="John Doe" required className="bg-background rounded-none border-border focus-visible:ring-primary focus-visible:border-primary" />

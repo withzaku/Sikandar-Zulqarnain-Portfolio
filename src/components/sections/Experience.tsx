@@ -77,8 +77,8 @@ export default function Experience() {
     ];
 
     return (
-        <section id="experience" ref={containerRef} className="py-24 relative w-full border-t border-white/5 bg-gradient-to-b from-transparent to-primary/5">
-            <div className="container mx-auto px-6 md:px-12 max-w-5xl">
+        <section id="experience" ref={containerRef} className="py-16 md:py-24 relative w-full border-t border-white/5 bg-gradient-to-b from-transparent to-primary/5">
+            <div className="container mx-auto px-4 sm:px-6 md:px-12 max-w-5xl">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -86,7 +86,7 @@ export default function Experience() {
                     transition={{ duration: 0.6 }}
                     className="mb-16"
                 >
-                    <DNAScrambleText text="Professional Journey" className="text-4xl sm:text-5xl md:text-7xl font-black tracking-tighter mb-4 font-heading uppercase text-foreground" />
+                    <DNAScrambleText text="Professional Journey" className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-black tracking-tighter mb-4 font-heading uppercase text-foreground" />
                 </motion.div>
 
                 <div className="relative pl-8 md:pl-0">
@@ -100,7 +100,7 @@ export default function Experience() {
 
                     <div className="space-y-16">
                         {experiences.map((exp, index) => (
-                            <div key={index} className={`relative flex flex-col md:flex-row items-center justify-between ${index % 2 === 0 ? "md:flex-row-reverse" : ""}`}>
+                            <div key={index} className={`relative flex flex-col md:flex-row items-start md:items-center justify-between ${index % 2 === 0 ? "md:flex-row-reverse" : ""}`}>
 
                                 {/* Timeline Node */}
                                 <div className="absolute left-[-32px] md:left-1/2 w-4 h-4 rounded-none bg-background border-2 border-primary md:-translate-x-1/2 z-10">
@@ -119,14 +119,13 @@ export default function Experience() {
                                     whileInView={{ opacity: 1, x: 0 }}
                                     viewport={{ once: true, margin: "-100px" }}
                                     transition={{ duration: 0.8 }}
-                                    className="w-full md:w-5/12 ml-6 md:ml-0"
+                                    className="w-full md:w-5/12 ml-6 md:ml-0 mt-4 md:mt-0"
                                 >
                                     <div className="bg-card p-8 rounded-none border border-border hover:border-primary transition-colors group">
-                                        {/* Bug #12 fix: Date range now rendered from real resume data */}
                                         <span className="text-xs font-mono font-bold text-primary tracking-widest uppercase mb-1 block">
                                             {exp.period}
                                         </span>
-                                        <h3 className="text-3xl font-black mb-1 transition-colors font-heading uppercase text-foreground">{exp.role}</h3>
+                                        <h3 className="text-xl sm:text-2xl md:text-3xl font-black mb-1 transition-colors font-heading uppercase text-foreground">{exp.role}</h3>
                                         <h4 className="text-sm font-mono text-muted-foreground mb-6 uppercase tracking-widest">{exp.company}</h4>
                                         <p className="text-muted-foreground mb-6 text-sm leading-relaxed">
                                             {exp.description}

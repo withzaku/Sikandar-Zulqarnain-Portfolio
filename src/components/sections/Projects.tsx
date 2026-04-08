@@ -39,7 +39,7 @@ function ProjectCard({ project, index }: { project: any; index: number }) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
-            className="group w-full h-full bg-card border border-border p-8 cursor-pointer flex flex-col justify-between overflow-hidden hover:border-primary transition-colors duration-300 relative"
+            className="group w-full h-full bg-card border border-border p-5 md:p-8 cursor-pointer flex flex-col justify-between overflow-hidden hover:border-primary transition-colors duration-300 relative"
         >
             <div className="absolute top-0 right-0 p-4 font-mono text-xs text-muted-foreground opacity-50 group-hover:opacity-100 transition-opacity">
                 0{index + 1}
@@ -72,8 +72,8 @@ function ProjectCard({ project, index }: { project: any; index: number }) {
 
 export default function Projects() {
     return (
-        <section id="projects" className="py-24 relative w-full overflow-visible">
-            <div className="container mx-auto px-6 md:px-12">
+        <section id="projects" className="py-16 md:py-24 relative w-full overflow-visible">
+            <div className="container mx-auto px-4 sm:px-6 md:px-12">
                 <motion.div
                     initial={{ opacity: 0, scale: 0.9 }}
                     whileInView={{ opacity: 1, scale: 1 }}
@@ -83,7 +83,7 @@ export default function Projects() {
                 >
                     <div className="flex flex-col text-5xl md:text-7xl font-black tracking-tighter mb-4 font-heading uppercase text-foreground">
                         <div className="overflow-hidden">
-                            <DNAScrambleText text="Featured Work" className="text-5xl md:text-7xl font-black tracking-tighter mb-4 font-heading uppercase text-foreground" />
+                            <DNAScrambleText text="Featured Work" className="text-4xl sm:text-5xl md:text-7xl font-black tracking-tighter mb-4 font-heading uppercase text-foreground" />
                         </div>
                     </div>
                     <p className="text-lg text-muted-foreground font-mono text-sm uppercase tracking-widest">
@@ -91,7 +91,7 @@ export default function Projects() {
                     </p>
                 </motion.div>
 
-                <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
+                <div className="grid sm:grid-cols-2 gap-5 md:gap-8 lg:gap-12">
                     {projects.map((project, idx) => (
                         <ProjectCard key={project.slug} project={project} index={idx} />
                     ))}

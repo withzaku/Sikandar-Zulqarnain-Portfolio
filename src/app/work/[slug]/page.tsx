@@ -56,13 +56,13 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
     }
 
     return (
-        <div className="min-h-screen pt-32 pb-24 relative z-10">
-            <div className="container mx-auto px-6 md:px-12 max-w-4xl">
+        <div className="min-h-screen pt-24 md:pt-32 pb-16 md:pb-24 relative z-10">
+            <div className="container mx-auto px-4 sm:px-6 md:px-12 max-w-4xl">
                 <Link href="/#projects" className="inline-flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-widest text-muted-foreground hover:text-primary transition-colors mb-12">
                     <ArrowLeft size={16} /> Back to Projects
                 </Link>
 
-                <h1 className="text-5xl md:text-7xl font-black tracking-tighter mb-4 font-heading uppercase text-foreground">{study.title}</h1>
+                <h1 className="text-3xl sm:text-5xl md:text-7xl font-black tracking-tighter mb-4 font-heading uppercase text-foreground">{study.title}</h1>
                 <p className="text-xl font-mono text-primary mb-8">{study.subtitle}</p>
 
                 <div className="flex flex-wrap gap-2 mb-12">
@@ -74,12 +74,12 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
                 </div>
 
                 <div className="max-w-none">
-                    <h2 className="text-3xl font-black mb-6 font-heading uppercase text-foreground">Project Overview</h2>
+                    <h2 className="text-2xl md:text-3xl font-black mb-6 font-heading uppercase text-foreground">Project Overview</h2>
                     <p className="font-mono text-sm text-muted-foreground mb-16 leading-relaxed">
                         {study.description}
                     </p>
 
-                    <h2 className="text-3xl font-black mb-6 font-heading uppercase text-foreground">Key Outcomes &amp; Results</h2>
+                    <h2 className="text-2xl md:text-3xl font-black mb-6 font-heading uppercase text-foreground">Key Outcomes &amp; Results</h2>
                     <ul className="space-y-4 mb-16">
                         {study.results.map((res: string, idx: number) => (
                             <li key={idx} className="flex items-start gap-4 font-mono text-sm text-muted-foreground">
