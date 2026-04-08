@@ -115,20 +115,20 @@ export default function Contact() {
                                     <div className="grid md:grid-cols-2 gap-6">
                                         <div className="space-y-2">
                                             <label htmlFor="name" className="text-xs font-mono tracking-widest uppercase text-muted-foreground">Name</label>
-                                            <Input id="name" placeholder="John Doe" required className="bg-background rounded-none border-border focus-visible:ring-primary focus-visible:border-primary" />
+                                            <Input id="name" name="name" placeholder="John Doe" required className="bg-background rounded-none border-border focus-visible:ring-primary focus-visible:border-primary" />
                                         </div>
                                         <div className="space-y-2">
                                             <label htmlFor="email" className="text-xs font-mono tracking-widest uppercase text-muted-foreground">Email</label>
-                                            <Input id="email" type="email" placeholder="john@company.com" required className="bg-background rounded-none border-border focus-visible:ring-primary focus-visible:border-primary" />
+                                            <Input id="email" name="email" type="email" placeholder="john@company.com" required className="bg-background rounded-none border-border focus-visible:ring-primary focus-visible:border-primary" />
                                         </div>
                                     </div>
                                     <div className="space-y-2">
                                         <label htmlFor="subject" className="text-xs font-mono tracking-widest uppercase text-muted-foreground">Subject</label>
-                                        <Input id="subject" placeholder="Project Inquiry" required className="bg-background rounded-none border-border focus-visible:ring-primary focus-visible:border-primary" />
+                                        <Input id="subject" name="subject" placeholder="Project Inquiry" required className="bg-background rounded-none border-border focus-visible:ring-primary focus-visible:border-primary" />
                                     </div>
                                     <div className="space-y-2">
                                         <label htmlFor="message" className="text-xs font-mono tracking-widest uppercase text-muted-foreground">Message</label>
-                                        <Textarea id="message" placeholder="Tell me about your project..." rows={5} required className="bg-background rounded-none border-border focus-visible:ring-primary focus-visible:border-primary resize-none" />
+                                        <Textarea id="message" name="message" placeholder="Tell me about your project..." rows={5} required className="bg-background rounded-none border-border focus-visible:ring-primary focus-visible:border-primary resize-none" />
                                     </div>
                                     <Button
                                         disabled={isSubmitting}
