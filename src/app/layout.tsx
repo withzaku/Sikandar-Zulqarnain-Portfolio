@@ -11,22 +11,24 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 import Navbar from "@/components/ui/Navbar";
 import CustomCursor from "@/components/ui/CustomCursor";
 import SmoothScroll from "@/components/ui/SmoothScroll";
+import Footer from "@/components/ui/Footer";
 
 export const metadata: Metadata = {
-  title: "Sikandar Zulqarnain | Expert Web Designer & Bioinformatics Engineer",
-  description: "Extreme level portfolio of Sikandar Zulqarnain, building intelligent systems for biology, analyzing genomic data, and crafting elite web applications.",
+  title: "Sikandar Zulqarnain | Web Designer & Bioinformatics Engineer",
+  description: "Portfolio of Sikandar Zulqarnain — building intelligent systems for biology and data.",
   keywords: ["Bioinformatics Engineer", "Data Scientist", "Full Stack Developer", "Genomics", "Web Designer", "Lahore"],
   openGraph: {
-    title: "Sikandar Zulqarnain | Digital Portfolio",
-    description: "Premium black and green portfolio featuring bioinformatics, full-stack dev, and data science projects.",
-    url: "https://sikandar-zulqarnain.vercel.app",
+    title: "Sikandar Zulqarnain | Web Designer & Bioinformatics Engineer",
+    description: "Portfolio of Sikandar Zulqarnain — building intelligent systems for biology and data.",
+    // TODO: Add a 1200x630px og-image.png to /public/ for social previews
+    url: "https://sikandar-zulqarnain-portfolio.vercel.app",
     siteName: "Sikandar Zulqarnain Portfolio",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Sikandar Zulqarnain - Bioinformatics Engineer",
+        alt: "Sikandar Zulqarnain - Bioinformatics Engineer & Web Designer",
       }
     ],
     locale: "en_US",
@@ -34,8 +36,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Sikandar Zulqarnain | Bioinformatics & Full Stack Dev",
-    description: "Building intelligent systems for biology and data. View my portfolio.",
+    title: "Sikandar Zulqarnain | Web Designer & Bioinformatics Engineer",
+    description: "Portfolio of Sikandar Zulqarnain — building intelligent systems for biology and data.",
     images: ["/og-image.png"],
   },
 };
@@ -90,6 +92,7 @@ export default function RootLayout({
           <SmoothScroll>
             <main className="min-h-screen relative z-10">{children}</main>
           </SmoothScroll>
+          <Footer />
           <Analytics />
           <SpeedInsights />
         </ThemeProvider>

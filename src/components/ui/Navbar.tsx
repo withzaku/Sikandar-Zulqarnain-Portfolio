@@ -4,11 +4,14 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
-import { Download, Menu, X, Moon, Sun } from "lucide-react";
+import { Download, Menu, X, Moon, Sun, Github } from "lucide-react";
 import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/button";
 import { useStore } from "@/store/useStore";
 import clsx from "clsx";
+
+// TODO: Replace with your actual GitHub URL if it changes
+const GITHUB_URL = "https://github.com/withzaku";
 
 export default function Navbar() {
     const [scrolled, setScrolled] = useState(false);
@@ -66,6 +69,17 @@ export default function Navbar() {
                         </Link>
                     ))}
 
+                    {/* GitHub social link — Bug #8 fix */}
+                    <a
+                        href={GITHUB_URL}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="GitHub"
+                        className="text-muted-foreground hover:text-primary transition-colors"
+                    >
+                        <Github size={20} />
+                    </a>
+
                     {/* Theme Toggle */}
                     {mounted && (
                         <button
@@ -116,6 +130,18 @@ export default function Navbar() {
                             {link.name}
                         </Link>
                     ))}
+
+                    {/* GitHub in mobile menu — Bug #8 fix */}
+                    <a
+                        href={GITHUB_URL}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="GitHub"
+                        className="flex items-center gap-2 text-lg font-medium text-foreground hover:text-primary transition-colors"
+                        onClick={() => setMenuOpen(false)}
+                    >
+                        <Github size={20} /> GitHub
+                    </a>
                 </motion.div>
             )}
         </motion.header>

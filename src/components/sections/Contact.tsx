@@ -2,19 +2,21 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, MessageSquare, Send, CheckCircle2 } from "lucide-react";
+import { Mail, MessageSquare, Send, CheckCircle2, AlertCircle, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 
-export default function Contact() {
-    const [isSubmitting, setIsSubmitting] = useState(false);
-    const [isSuccess, setIsSuccess] = useState(false);
+type Status = "idle" | "loading" | "success" | "error";
 
-    // Real form submission logic using Resend API
+export default function Contact() {
+    const [status, setStatus] = useState<Status>("idle");
+    const [errorMsg, setErrorMsg] = useState("");
+
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        setIsSubmitting(true);
+        setStatus("loading");
+        setErrorMsg("");
 
         const formData = new FormData(e.currentTarget);
         const data = {
@@ -31,20 +33,20 @@ export default function Contact() {
                 body: JSON.stringify(data),
             });
 
+            const result = await response.json();
+
             if (response.ok) {
-                setIsSuccess(true);
+                setStatus("success");
                 (e.target as HTMLFormElement).reset();
-                setTimeout(() => setIsSuccess(false), 5000);
+                // Auto-reset success state after 6 seconds
+                setTimeout(() => setStatus("idle"), 6000);
             } else {
-                const error = await response.json();
-                console.error("Submission failed:", error);
-                alert("Failed to send message. Please check the console for details.");
+                setStatus("error");
+                setErrorMsg(result.error || "Something went wrong. Please try again.");
             }
         } catch (err) {
-            console.error("Submission error:", err);
-            alert("An error occurred. Please try again later.");
-        } finally {
-            setIsSubmitting(false);
+            setStatus("error");
+            setErrorMsg("Network error. Please check your connection and try again.");
         }
     };
 
@@ -61,10 +63,10 @@ export default function Contact() {
                     className="w-full lg:w-5/12"
                 >
                     <h2 className="text-[3.5rem] leading-[1] sm:text-5xl md:text-7xl font-black tracking-tighter mb-6 font-heading uppercase text-foreground">
-                        Let's Create The <span className="text-primary italic">Future</span>
+                        Let&apos;s Create The <span className="text-primary italic">Future</span>
                     </h2>
                     <p className="text-lg text-muted-foreground mb-12">
-                        Whether you need scalable genomic pipelines, deep-learning data analysis, or a robust full-stack application, I'm ready to build it.
+                        Whether you need scalable genomic pipelines, deep-learning data analysis, or a robust full-stack application, I&apos;m ready to build it.
                     </p>
 
                     <div className="space-y-6">
@@ -90,7 +92,7 @@ export default function Contact() {
                     </div>
                 </motion.div>
 
-                {/* Right Side: Glassmorphism Form */}
+                {/* Right Side: Form */}
                 <motion.div
                     initial={{ opacity: 0, x: 50 }}
                     whileInView={{ opacity: 1, x: 0 }}
@@ -100,15 +102,17 @@ export default function Contact() {
                 >
                     <div className="bg-card p-8 md:p-12 rounded-none border border-border relative overflow-hidden">
                         <form onSubmit={handleSubmit} className="relative z-10 space-y-6">
-                            {isSuccess ? (
+
+                            {/* Success State */}
+                            {status === "success" ? (
                                 <motion.div
                                     initial={{ scale: 0.8, opacity: 0 }}
                                     animate={{ scale: 1, opacity: 1 }}
                                     className="flex flex-col items-center justify-center py-16 text-center"
                                 >
-                                    <CheckCircle2 size={64} className="text-emerald-500 mb-4" />
+                                    <CheckCircle2 size={64} className="text-primary mb-4" />
                                     <h3 className="text-2xl font-black mb-2 font-heading uppercase text-foreground">Message Sent!</h3>
-                                    <p className="text-muted-foreground">I'll get back to you within 24 hours.</p>
+                                    <p className="text-muted-foreground">I&apos;ll get back to you within 24 hours.</p>
                                 </motion.div>
                             ) : (
                                 <>
@@ -130,15 +134,32 @@ export default function Contact() {
                                         <label htmlFor="message" className="text-xs font-mono tracking-widest uppercase text-muted-foreground">Message</label>
                                         <Textarea id="message" name="message" placeholder="Tell me about your project..." rows={5} required className="bg-background rounded-none border-border focus-visible:ring-primary focus-visible:border-primary resize-none" />
                                     </div>
+
+                                    {/* Error banner */}
+                                    {status === "error" && (
+                                        <motion.div
+                                            initial={{ opacity: 0, y: -8 }}
+                                            animate={{ opacity: 1, y: 0 }}
+                                            className="flex items-center gap-3 p-4 border border-destructive/50 bg-destructive/10 text-destructive text-sm font-mono"
+                                        >
+                                            <AlertCircle size={16} className="shrink-0" />
+                                            {errorMsg}
+                                        </motion.div>
+                                    )}
+
                                     <Button
-                                        disabled={isSubmitting}
+                                        disabled={status === "loading"}
                                         type="submit"
                                         className="w-full bg-primary text-primary-foreground hover:bg-primary border-2 border-primary gap-2 h-14 text-sm font-bold uppercase tracking-widest transition-all duration-300 rounded-none hover:bg-transparent hover:text-primary"
                                     >
-                                        {isSubmitting ? (
-                                            <span className="flex items-center gap-2"><div className="w-4 h-4 rounded-full border-t-2 border-white animate-spin"></div> Sending...</span>
+                                        {status === "loading" ? (
+                                            <span className="flex items-center gap-2">
+                                                <Loader2 size={16} className="animate-spin" /> Sending...
+                                            </span>
                                         ) : (
-                                            <span className="flex items-center gap-2">Send Message <Send size={18} /></span>
+                                            <span className="flex items-center gap-2">
+                                                Send Message <Send size={18} />
+                                            </span>
                                         )}
                                     </Button>
                                 </>

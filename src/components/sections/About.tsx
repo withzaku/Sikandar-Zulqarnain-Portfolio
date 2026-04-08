@@ -109,8 +109,9 @@ export default function About() {
                                 src="/profile.png"
                                 alt="Sikandar Zulqarnain"
                                 fill
-                                sizes="(max-width: 1024px) 100vw, 50vw"
+                                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 500px"
                                 className="object-cover grayscale hover:grayscale-0 transition-all duration-700 object-top"
+                                priority
                             />
                             {/* Custom Border overlay */}
                             <div className="absolute inset-0 border border-border group-hover:border-primary/50 transition-colors duration-500 pointer-events-none" />

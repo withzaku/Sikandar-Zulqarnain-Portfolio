@@ -11,7 +11,8 @@ interface DNAScrambleTextProps {
 }
 
 export function DNAScrambleText({ text, className = "" }: DNAScrambleTextProps) {
-    const [displayText, setDisplayText] = useState("");
+    // Fix: initialize to real text so no AAAA placeholder is ever shown
+    const [displayText, setDisplayText] = useState(text);
     const ref = useRef<HTMLHeadingElement>(null);
     const isInView = useInView(ref, { once: true, margin: "-50px" });
 
@@ -48,7 +49,7 @@ export function DNAScrambleText({ text, className = "" }: DNAScrambleTextProps) 
 
     return (
         <motion.div ref={ref} className={className}>
-            {displayText || text.replace(/./g, "A")} {/* Placeholder before start */}
+            {displayText}
         </motion.div>
     );
 }

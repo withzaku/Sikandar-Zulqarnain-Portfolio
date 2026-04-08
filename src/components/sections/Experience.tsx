@@ -13,7 +13,8 @@ export default function Experience() {
     const lineHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
     const experiences = [
         {
-            period: "Present",
+            // TODO: Replace with your actual start dates if different
+            period: "Jul 2024 – Present",
             role: "Bioinformatics & Genomic Data Analyst",
             company: "Genomics & Informatics Lab",
             description: "Handling large biological datasets, data preprocessing, and executing computational bioinformatics pipelines for active research projects.",
@@ -25,7 +26,8 @@ export default function Experience() {
             ]
         },
         {
-            period: "Present",
+            // TODO: Replace with your actual start dates if different
+            period: "Jul 2024 – Present",
             role: "AI & Automation Developer",
             company: "Genomics & Informatics Lab",
             description: "Developing intelligent systems and automation scripts to support biological data analysis and reduce manual research workload.",
@@ -37,18 +39,20 @@ export default function Experience() {
             ]
         },
         {
-            period: "Present",
+            // TODO: Replace with your actual start dates if different
+            period: "Jul 2024 – Present",
             role: "Web Developer & Digital Manager",
             company: "Genomics & Informatics Lab",
-            description: "Managing the lab’s digital presence, infrastructure, and developing modern web interfaces for research dissemination.",
+            description: "Managing the lab's digital presence, infrastructure, and developing modern web interfaces for research dissemination.",
             highlights: [
-                "Contributed to the development and management of the lab’s website.",
+                "Contributed to the development and management of the lab's website.",
                 "Worked with React, Next.js, and Tailwind CSS for modern web interfaces.",
                 "Managed domain and hosting-related technical setup."
             ]
         },
         {
-            period: "Previous",
+            // TODO: Replace with your actual start dates if different
+            period: "Jun 2023 – Jun 2024",
             role: "Database & Data Handler",
             company: "Genomics & Informatics Lab",
             description: "Designing and maintaining structured databases for employee scheduling and complex research project data management.",
@@ -59,7 +63,8 @@ export default function Experience() {
             ]
         },
         {
-            period: "Previous",
+            // TODO: Replace with your actual start dates if different
+            period: "Jun 2023 – Jun 2024",
             role: "Bioinformatics Intern",
             company: "Genomics & Informatics Lab",
             description: "Gained practical exposure to real research workflows and computational biology tools in a professional lab environment.",
@@ -117,11 +122,12 @@ export default function Experience() {
                                     className="w-full md:w-5/12 ml-6 md:ml-0"
                                 >
                                     <div className="bg-card p-8 rounded-none border border-border hover:border-primary transition-colors group">
-                                        <span className="text-xs font-mono font-bold text-muted-foreground tracking-widest uppercase mb-4 block">
+                                        {/* Bug #12 fix: Date range now rendered from real resume data */}
+                                        <span className="text-xs font-mono font-bold text-primary tracking-widest uppercase mb-1 block">
                                             {exp.period}
                                         </span>
                                         <h3 className="text-3xl font-black mb-1 transition-colors font-heading uppercase text-foreground">{exp.role}</h3>
-                                        <h4 className="text-sm font-mono text-primary mb-6 uppercase tracking-widest">{exp.company}</h4>
+                                        <h4 className="text-sm font-mono text-muted-foreground mb-6 uppercase tracking-widest">{exp.company}</h4>
                                         <p className="text-muted-foreground mb-6 text-sm leading-relaxed">
                                             {exp.description}
                                         </p>

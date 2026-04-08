@@ -65,10 +65,14 @@ export function ScrollVelocityText({ children, baseVelocity = 100, className = "
                 animate={{ skewX: skewValue }}
                 transition={{ type: "spring", stiffness: 300, damping: 30 }}
             >
-                <span className="block mr-8">{children}</span>
-                <span className="block mr-8">{children}</span>
-                <span className="block mr-8">{children}</span>
-                <span className="block mr-8">{children}</span>
+            <span className="block mr-6">{children}</span>
+                <span className="block mr-6 text-primary select-none" aria-hidden="true">·</span>
+                <span className="block mr-6">{children}</span>
+                <span className="block mr-6 text-primary select-none" aria-hidden="true">·</span>
+                <span className="block mr-6">{children}</span>
+                <span className="block mr-6 text-primary select-none" aria-hidden="true">·</span>
+                <span className="block mr-6">{children}</span>
+                <span className="block mr-6 text-primary select-none" aria-hidden="true">·</span>
             </motion.div>
         </div>
     );

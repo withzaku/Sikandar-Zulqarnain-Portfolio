@@ -5,7 +5,7 @@ import dynamic from "next/dynamic";
 import { Canvas } from "@react-three/fiber";
 import { Environment, Float, Preload } from "@react-three/drei";
 import { motion } from "framer-motion";
-import { ArrowRight, Terminal, Dna } from "lucide-react";
+import { ArrowRight, Terminal, Dna, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ScrollVelocityText } from "@/components/ui/ScrollVelocityText";
 
@@ -145,8 +145,9 @@ export default function Hero() {
                         className="text-lg md:text-xl text-muted-foreground max-w-xl flex flex-wrap gap-x-1 font-sans mt-4"
                     >
                         {introText.map((word, index) => (
+                            // Fix Bug #3: trailing space ensures words are separated in the flex container
                             <motion.span key={index} variants={typingChar}>
-                                {word}
+                                {word}{" "}
                             </motion.span>
                         ))}
                     </motion.div>
@@ -164,6 +165,12 @@ export default function Hero() {
                         </Button>
                         <Button asChild variant="outline" size="lg" className="rounded-none gap-2 text-md hover:bg-primary/10 hover:text-primary border-2 border-border hover:border-primary transition-colors text-foreground w-full sm:w-auto h-12 md:h-11">
                             <a href="#contact" className="font-heading font-bold uppercase tracking-widest flex items-center justify-center w-full">Initialize Contact</a>
+                        </Button>
+                        {/* TODO: Replace /cv.pdf with your actual CV file path if it changes */}
+                        <Button asChild variant="outline" size="lg" className="rounded-none gap-2 text-md hover:bg-primary/10 hover:text-primary border-2 border-border hover:border-primary transition-colors text-foreground w-full sm:w-auto h-12 md:h-11">
+                            <a href="/cv.pdf" download className="font-heading font-bold uppercase tracking-widest flex items-center justify-center gap-2 w-full">
+                                <Download size={16} /> Download CV
+                            </a>
                         </Button>
                     </motion.div>
                 </div>
